@@ -14,26 +14,31 @@ public class Homepage {
     WebDriver driver;
     WebDriverWait wait;
 
+    By origin = By.xpath("//*[@id='origin']/div");
+    By suggestion = By.xpath("//li[contains(@id,'typeahead')]");
+
+
+
     public Homepage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, 10);
     }
 
     public void clickOrigin(){
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id='origin']/div")));
-        driver.findElement(By.xpath("//*[@id='origin']/div")).click();
+        wait.until(ExpectedConditions.elementToBeClickable(origin));
+        driver.findElement(origin).click();
     }
 
     public void clearOrigin(){
-        driver.findElement(By.xpath("//*[@id='origin']/div")).clear();
+        driver.findElement(origin).clear();
     }
 
     public void sendKeysOrigin(){
-        driver.findElement(By.xpath("//*[@id='origin']/div")).sendKeys("dublin");
+        driver.findElement(origin).sendKeys("dublin");
     }
 
     public void clickOriginSuggestion(){
-        driver.findElement(By.xpath("//li[contains(@id,'typeahead')]")).click();
+        driver.findElement(suggestion).click();
     }
 
     public void clickDestination(){
@@ -41,11 +46,11 @@ public class Homepage {
     }
 
     public void sendKeysDestination(){
-        driver.findElement(By.xpath("//*[@id='origin']/div")).sendKeys("paris");
+        driver.findElement(By.xpath("//*[@id='dest']/div")).sendKeys("paris");
     }
 
     public void clickDestinationSuggestion(){
-        driver.findElement(By.xpath("//li[contains(@id,'typeahead')]")).click();
+        driver.findElement(suggestion).click();
     }
 
 
